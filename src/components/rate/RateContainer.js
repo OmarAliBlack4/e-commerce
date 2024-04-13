@@ -8,7 +8,6 @@ import { useParams } from 'react-router';
 import GetAllReviewHook from '../../hook/review/get-all-review-hook';
 
 const RateContainer = ({ratingsQua ,ratingsAve }) => {
-    console.log(ratingsAve);
     const {id} = useParams();
     const [allReview , onPress] = GetAllReviewHook(id)
     const isLog = localStorage.getItem("token") 

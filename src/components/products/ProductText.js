@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row,Col } from 'react-bootstrap'
 import GetSpecificProductHook from '../../hook/product/get-specific-product-hook'
 import { useParams } from 'react-router'
@@ -6,6 +6,15 @@ import { useParams } from 'react-router'
 const ProductText = () => {
   const {id} = useParams()
   const [data ,,catData,brData,] = GetSpecificProductHook(id);
+  const [colorNum , setColorNum ] = useState('')
+  const [color , setColor ] = useState('')
+
+
+  const colorHandel =(index , color)=>{
+    setColorNum(index)
+    setColor(color)
+
+  }
 
     return (
         <div>
@@ -30,7 +39,7 @@ const ProductText = () => {
         {
           data.availableColors ? (data.availableColors.map((color,index)=>{
             return(
-              <div key={index} className="color ms-2 border" style={{ backgroundColor: color}}></div>
+              <div key={index} onClick={()=> colorHandel(index , color)} className="color ms-2 " style={{ backgroundColor: color , border: index === colorNum ? "1px solid black": "none" }}></div>
             )
           }) ) : null
         }

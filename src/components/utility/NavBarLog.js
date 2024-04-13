@@ -99,10 +99,14 @@ const NavBarLog = () => {
                         )
                     }
 
-                        <Link to='/cart' className='nav-text'>
+                        <Link to='/cart' className='nav-text position-relative'>
                             <img style={{ marginRight:"5px" }} src={cart} className="login-img" alt="sfvs" />
                             <p style={{ color: "white",margin:"0" }}>Cart</p>
-                            </Link>
+                            <span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                            <span class="visually-hidden">unread messages</span>
+                            </span>    
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
